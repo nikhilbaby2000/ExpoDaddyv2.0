@@ -1,0 +1,151 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff6a92c2">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.facebook.login.widget.LoginButton
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/facebook_login_button"
+            android:onClick="onClick"
+            android:layout_below="@+id/google_login_button"
+            android:layout_marginTop="10dp"
+            android:layout_alignLeft="@+id/google_login_button"
+            android:layout_alignStart="@+id/google_login_button"
+            android:layout_marginLeft="1dp"
+            android:layout_alignRight="@+id/google_login_button"
+            android:layout_alignEnd="@+id/google_login_button"
+            android:layout_marginRight="1dp"
+            android:background="@drawable/loginbutton_corners"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:text="Hey there! Waiting for your Login."
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ff040405"
+            android:layout_below="@+id/new_user"
+            android:layout_marginTop="50dp" />
+
+        <com.google.android.gms.common.SignInButton
+            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:id="@+id/google_login_button"
+            android:layout_marginTop="56dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/loginbutton_corners"
+            android:visibility="gone"/>
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/profilePic_ImgView"
+        android:background="@drawable/custom_corners"
+        android:layout_below="@+id/facebook_login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/g_btn"
+        android:src="@drawable/google_plus_log"
+        android:background="@drawable/loginbutton_corners"
+        android:layout_above="@+id/new_user"
+        android:layout_toLeftOf="@+id/fb_btn"
+        android:layout_toStartOf="@+id/fb_btn" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/fb_btn"
+        android:src="@drawable/fb_logo"
+        android:background="@drawable/loginbutton_corners"
+        android:layout_below="@+id/login_button_main"
+        android:layout_alignRight="@+id/login_button_main"
+        android:layout_alignEnd="@+id/login_button_main"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="3dp" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/username_value"
+        android:hint="Username"
+        android:layout_marginTop="125dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordLogin_value"
+        android:hint="Password"
+        android:layout_below="@+id/username_value"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="New User? Register now in a few seconds"
+        android:id="@+id/new_user"
+        android:layout_below="@+id/fb_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:textColor="#ffc25c43"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/login_button_main"
+        android:src="@drawable/login_logo_button"
+        android:layout_below="@+id/passwordLogin_value"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;>>>>>>>>>>>>>>>>>>"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/fb_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ExpoDaddy"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/profilePic_ImgView"
+            android:layout_centerHorizontal="true"
+            android:textStyle="italic"
+            android:textSize="13dp" />
+
+    </RelativeLayout>
+
+</ScrollView>
+
+</RelativeLayout>

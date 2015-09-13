@@ -1,0 +1,105 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffe3dee9"
+    android:id="@+id/relativeLayout_mainActivity">
+    <!-- android:paddingTop="?attr/actionBarSize" -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/scrollView"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/topbar1"
+                android:orientation="horizontal"
+                android:background="#ff86afc2">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/topbar1_base_button"
+                    android:layout_gravity="left"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/options_img_black"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ExpoDaddy "
+                    android:layout_marginTop="7dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#ff040405"
+                    android:textSize="20dp" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_user_name"
+                    android:text="Nikhil"
+                    android:textColor="#ff040405"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="7dp"
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    android:textSize="17dp" />
+
+
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:id="@+id/topbar2"
+                android:orientation="horizontal"
+                android:layout_below="@+id/topbar1"
+                android:background="#ff86afc2">
+
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/scrollView">
+
+    <android.support.v4.view.ViewPager
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pager_mainActivity"
+        android:layout_gravity="right"
+        />
+
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/indicator"
+        android:layout_alignParentTop="true"
+        android:paddingTop="30dp"
+        />
+
+</RelativeLayout>
+
+</RelativeLayout>

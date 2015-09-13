@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/relativeLayout_main_enclosure">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout_content_1"
+        android:layout_alignParentTop="true">
+
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/exhibition_logo"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="3dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exhibition Name"
+            android:id="@+id/exhibition_name"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/exhibition_logo"
+            android:layout_toEndOf="@+id/exhibition_logo"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:textColor="#ff212129" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exhibition Description - Short"
+            android:id="@+id/exhibition_description_short"
+            android:layout_alignBottom="@+id/exhibition_logo"
+            android:layout_toRightOf="@+id/exhibition_logo"
+            android:layout_toEndOf="@+id/exhibition_logo"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="3dp"
+            android:textColor="#ff212129" />
+
+
+    </RelativeLayout>
+
+
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/content_horizontal_scrollView"
+        android:layout_below="@+id/relativeLayout_content_1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img11"/>
+            <com.android.volley.toolbox.NetworkImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img22"
+                android:layout_marginLeft="10dp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout_content_2"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/content_horizontal_scrollView">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/exhibition_description_long"
+            android:text="Exhibition Description - Long"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="3dp"
+            android:textColor="#ff212129" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/exhibition_like_ImageButton"
+            android:layout_below="@+id/exhibition_description_long"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/like_img" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/exhibition_like_count"
+            android:text="15 Likes"
+            android:textColor="#ff212129"
+            android:layout_alignBottom="@+id/exhibition_like_button"
+            android:layout_toRightOf="@+id/exhibition_like_ImageButton"
+            android:layout_toEndOf="@+id/exhibition_like_ImageButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:text="Like"
+            android:id="@+id/exhibition_like_button"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"
+            android:layout_alignTop="@+id/exhibition_save_button"
+            android:layout_toRightOf="@+id/exhibition_like_count"
+            android:layout_toEndOf="@+id/exhibition_like_count" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:text="Save"
+            android:id="@+id/exhibition_save_button"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_alignTop="@+id/exhibition_like_ImageButton"
+            android:layout_toRightOf="@+id/exhibition_like_button"
+            android:layout_toEndOf="@+id/exhibition_like_button" />
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
