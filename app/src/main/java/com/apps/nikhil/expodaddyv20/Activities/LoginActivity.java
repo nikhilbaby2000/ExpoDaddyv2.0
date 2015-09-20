@@ -22,6 +22,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
+import com.apps.nikhil.expodaddyv20.FileReaderWriterClass;
 import com.apps.nikhil.expodaddyv20.MoveToNewActivity;
 import com.apps.nikhil.expodaddyv20.R;
 import com.facebook.CallbackManager;
@@ -44,6 +45,7 @@ import com.google.android.gms.plus.model.people.Person;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.Arrays;
 
 
@@ -61,6 +63,7 @@ public class LoginActivity extends ActionBarActivity implements
     String gPersonURL,gPersonPicURl,fPersonURL="www.facebook.com/",fPersonPicURL="https://graph.facebook.com/";
 
     public int clicked_button_no=0;
+    private FileReaderWriterClass fileWriter;
 
     TextView login_status;
 
@@ -85,6 +88,10 @@ public class LoginActivity extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext()); // Have to put code right here. No other fucking place for that will work. Hell it is - otherwise.
         setContentView(R.layout.activity_login);
+
+        File file = new File("/storage/sdcard0/ExpoDaddy");
+        if ( ! file.exists() )
+            file.mkdir();
 
         queue = Volley.newRequestQueue(this);
         imageLoader = new ImageLoader(queue,new ImageLoader.ImageCache() {
@@ -131,8 +138,6 @@ public class LoginActivity extends ActionBarActivity implements
             public void onSuccess(LoginResult loginResult) {
                 login_status.setText("UserID: " + loginResult.getAccessToken().getUserId() /*+ "\n AuthToken: "+ loginResult.getAccessToken().getToken() + "\n keyHash= "*/);
 
-
-
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
                         new GraphRequest.GraphJSONObjectCallback() {
@@ -154,6 +159,11 @@ public class LoginActivity extends ActionBarActivity implements
                                     profile_pic_imageView.setImageUrl(fPersonPicURL+Id+"/picture",imageLoader);
                                     //login_status.setText("Id:"+object.getString("id")+"\n Name:" + object.getString("name")+ "\n DOB: "+object.getString("birthday")
                                     //     +"\n Gender:"+object.getString("gender")+"\n Email:"+object.getString("email"));
+
+                                    //Write User Data to file
+                                    FileReaderWriterClass dataWriter = new FileReaderWriterClass();
+                                    dataWriter.writeToFile(LoginActivity.this, object+"");
+
                                 } catch (JSONException j) {
 
                                 }
@@ -322,11 +332,20 @@ public class LoginActivity extends ActionBarActivity implements
             login_status.setText("Name: "+Name+"\nEmail: "+Email+"\nPicURL: "+personPhoto);
 
             profile_pic_imageView.setImageUrl(personPhoto,imageLoader);
-/*
-            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText(" ", personPhoto);
-            clipboard.setPrimaryClip(clip);
-*/
+
+            //Write User Data to file
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("name" , Name);
+                jsonObject.put("email", Email);
+                jsonObject.put("photo_url", personPhoto);
+            }
+            catch (JSONException e){
+                Toast.makeText(this, "Oops.. Met with some error guy." ,Toast.LENGTH_SHORT).show();
+            }
+            FileReaderWriterClass dataWriter = new FileReaderWriterClass();
+            dataWriter.writeToFile(LoginActivity.this, jsonObject + "");
+
         }
 
         // Show the signed-in UI

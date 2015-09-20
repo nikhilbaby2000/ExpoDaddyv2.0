@@ -24,16 +24,6 @@
                 android:orientation="horizontal"
                 android:background="#ff86afc2">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/topbar1_base_button"
-                    android:layout_gravity="left"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/options_img_black"
-                    android:layout_marginLeft="7dp"
-                    android:layout_marginTop="2dp" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,8 +44,8 @@
                     android:id="@+id/txt_user_name"
                     android:text="Nikhil"
                     android:textColor="#ff040405"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginRight="7dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
                     android:clickable="true"
                     android:onClick="onClick"
                     android:textSize="17dp" />

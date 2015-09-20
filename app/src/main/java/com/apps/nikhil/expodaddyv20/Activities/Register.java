@@ -13,13 +13,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.apps.nikhil.expodaddyv20.FileReaderWriterClass;
 import com.apps.nikhil.expodaddyv20.JsonUtil;
 import com.apps.nikhil.expodaddyv20.LocationClass;
 import com.apps.nikhil.expodaddyv20.MoveToNewActivity;
 import com.apps.nikhil.expodaddyv20.Person;
 import com.apps.nikhil.expodaddyv20.R;
 import com.google.android.gms.common.api.GoogleApiClient;
-
 
 public class Register extends ActionBarActivity  {
 
@@ -131,6 +131,11 @@ public class Register extends ActionBarActivity  {
 
         if (holder.password.getText().toString().equals(holder.passwordConfirm.getText().toString()) && enable_disable>=5) {
             Toast.makeText(getApplicationContext(), jsonString, Toast.LENGTH_LONG).show();
+
+            //Write User Data to file
+            FileReaderWriterClass dataWriter = new FileReaderWriterClass();
+            dataWriter.writeToFile(Register.this, jsonString + "" );
+
             AlertDialog alertDialog = new AlertDialog.Builder(this)
                     .setMessage(jsonString)
                     .setIcon(R.drawable.ic_launcher)
@@ -140,7 +145,7 @@ public class Register extends ActionBarActivity  {
                     .setCancelable(false)
                     .create();
 
-            alertDialog.show();;
+            alertDialog.show();
         }
         else
            Toast.makeText(getApplicationContext(),"Password Mismatch or Validation errors exist",Toast.LENGTH_SHORT).show();
